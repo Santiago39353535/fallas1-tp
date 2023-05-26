@@ -25,6 +25,9 @@ const Home = () => {
             cilindros:'',
             potencia:10,
             torque:10,
+            postura:'',
+            diamertroCilindro:50,
+            carreraCilindro:10,
         }
     );
 
@@ -243,6 +246,50 @@ const Home = () => {
                                 </Col>
                             </Form.Group>
                         </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Form.Group as={Row} className="mb-3" controlId="formPostura">
+                                <Form.Label column >Postura de Manejo</Form.Label>
+                                <Col >
+                                    <Form.Select value={values.postura} onChange={(event)=>updateValue({postura:event.target.value})} aria-label="Default select example">
+                                        <option value=''></option>
+                                        <option value={constants.POSTURA.RELAJADA}>{constants.POSTURA.RELAJADA}</option>
+                                        <option value={constants.POSTURA.NEUTRA}>{constants.POSTURA.NEUTRA}</option>
+                                        <option value={constants.POSTURA.AGRESIVA}>{constants.POSTURA.AGRESIVA}</option>
+                                    </Form.Select>
+                                </Col>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group as={Row} className="mb-3" controlId="formDiamtros">
+                                <Form.Label column>Diametro de Cilindro</Form.Label>
+                                <Col >
+                                    <Form.Control
+                                        type="number"
+                                        value={values.diamertroCilindro}
+                                        onChange={(event)=>updateValue({diamertroCilindro:event.target.value})}
+                                        min={50}
+                                        max={175}
+                                    />
+                                </Col>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group as={Row} className="mb-3" controlId="formCarreraCilindro">
+                                <Form.Label column>Carrera de Cilindro</Form.Label>
+                                <Col >
+                                    <Form.Control
+                                        type="number"
+                                        value={values.carreraCilindro}
+                                        onChange={(event)=>updateValue({carreraCilindro:event.target.value})}
+                                        min={10}
+                                        max={80}
+                                    />
+                                </Col>
+                            </Form.Group>
+                        </Col>
+                        <Col></Col>
                     </Row>
                 </Form>
             </div>

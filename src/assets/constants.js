@@ -26,5 +26,10 @@ module.exports = {
         SPORT:'Sport',
         CIUDAD:'Ciudad',
         CROSS:'Cross',
+    },
+    POSTURA:{
+        RELAJADA:'Relajada',
+        NEUTRA:'Neutra',
+        AGRESIVA:'Agresiva',
     }
 }
