@@ -1,0 +1,50 @@
+.section-intro {
+    height: 100vh;
+    /* se puede cambiar la iamgen de fondo */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-intro-title,.section-product-title{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+}
+
+
+.section-intro-sub-title{
+    text-align: center;
+    color: white;
+    font-size: 52px;
+}
+
+.section-product-sub-title{
+    text-align: center;
+    font-size: 38px;
+}
+
+.section-product-title,.section-product-sub-title{
+    color: black;
+}
+
+.highlightText{
+    font-weight: 700;
+}
+
+.section-product{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.badgesImg{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
