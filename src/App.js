@@ -5,6 +5,7 @@ import React, {Suspense,useEffect} from 'react';
 //imports
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ParallaxProvider } from 'react-scroll-parallax';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // constants
 import Constants from './assets/constants'; 
@@ -29,8 +30,7 @@ function App() {
         <ParallaxProvider>
           <DefaultLayout>
             <Routes>
-              <Route path={Constants.ROUTES.HOME} element={<Home />}>
-              </Route>
+              <Route path={Constants.ROUTES.HOME} element={<Home />}></Route>
               <Route path='*' element={<Page404 />} />
             </Routes>
           </DefaultLayout>

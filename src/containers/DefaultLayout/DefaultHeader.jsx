@@ -18,11 +18,11 @@ const DefaultHeader = () => {
     return (
     <Navbar bg="light" style={{zIndex:10}}>
         <Container>
-            <Navbar.Brand><Link className='headerLink' to={Constants.ROUTES.HOME}>Motos</Link></Navbar.Brand>
+            {/* <Navbar.Brand><Link className='headerLink' to={Constants.ROUTES.HOME}>Motos</Link></Navbar.Brand>
             <Nav>
                 {!loggedInState.loggedIn && <Navbar.Brand><Link className='headerLink' to={Constants.ROUTES.LOGIN}>Login</Link></Navbar.Brand>}
                 {!loggedInState.loggedIn && <Navbar.Brand><Link className='headerLink' to={Constants.ROUTES.SIGNUP}>Sign Up</Link></Navbar.Brand>}
-            </Nav>
+            </Nav> */}
         </Container>
     </Navbar>
     )
