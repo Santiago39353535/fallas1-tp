@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect,useReducer,useState } from 'react';
 import { useParallax, useParallaxController, Parallax } from 'react-scroll-parallax';
 import Form from 'react-bootstrap/Form';
+import Button  from "react-bootstrap/Button"
 import constants from '../../../assets/constants';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -50,7 +51,7 @@ const Home = () => {
 
     const validate = () =>{
         let errors = {};
-
+        console.log('datos',values)
         setFormErrors(errors);
 
         if (Object.keys(errors).length === 0) {
@@ -290,6 +291,15 @@ const Home = () => {
                             </Form.Group>
                         </Col>
                         <Col></Col>
+                    </Row>
+                    <Row className="justify-content-md-end">
+                        <Col md="auto">
+                            <Form.Group controlId="formSubmit">
+                                <Button variant="primary" type="submit">
+                                    Mandar Datos
+                                </Button>
+                            </Form.Group>
+                        </Col>
                     </Row>
                 </Form>
             </div>
