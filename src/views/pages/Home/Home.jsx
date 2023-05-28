@@ -6,8 +6,12 @@ import Button  from "react-bootstrap/Button"
 import constants from '../../../assets/constants';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Modal from 'react-bootstrap/Modal';
 
 import './Home.css';
+
+const { Engine } = require('json-rules-engine')
+const engine = new Engine()
 
 const Home = () => {
 
@@ -31,6 +35,12 @@ const Home = () => {
             carreraCilindro:10,
         }
     );
+    const [show, setShow] = useState(false);
+    const [vehicle, setVehicle] = useState(null);
+    const handleClose = () => {
+        setShow(false);
+        setVehicle(null);
+    };
 
     const [formerrors, setFormErrors] = useState({});
 
@@ -38,14 +48,143 @@ const Home = () => {
 
     useEffect(() => {
         parallaxController.update();
-    }, []);
+    }, []);    
+
+    var inicalizado = false; 
     
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         if (event) event.preventDefault();
         let errors = {};
 
         if (validate(values)) {
+            //Motor de reglas
 
+            if (!inicalizado) { //Tal vez es mejor poner esto en el "starter" pero ahora no me puse a buscar si eso existe
+                
+                //              USO       Experiencia/Presupuesto       Moto/mensaje
+                //R1
+                CrearReglaSimple('Recreativo', 'alta', 'alto', 'moto2', 'Al tener alto presupuesto y alta experiencia para uso recreativo cualquier modelo esta permitido sin limite de HP. Basicamente va a depender de los gustos personales de cada usuario.');
+                //R2
+                CrearReglaSimple('Recreativo', 'alta', 'medio', 'moto2', 'Alta experiencia, se busca lo mas divertido con un presupuesto medio.');
+                //R3
+                CrearReglaSimple('Recreativo', 'alta', 'bajo', 'moto3', 'Alta experiencia, se busca lo mas divertido posible con un presupuesto bajo.');
+                //R4
+                CrearReglaSimple('Recreativo', 'media', 'alto', 'moto4', 'Alto presupuesto, experiencia media, se busca algo que tenga como mucho 120 HP sin importar su precio.');
+                //R5
+                CrearReglaSimple('Recreativo', 'media', 'bajo', 'moto5', 'Experiencia media, se busca algo que tenga como mucho 120 HP con un presupuesto bajo.');
+                //R6
+                CrearReglaSimple('Recreativo', 'baja', 'alto', 'moto6', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, sin importar su precio, por lo que se apunta a las motos mas premium de este segmento.');
+                //R7
+                CrearReglaSimple('Recreativo', 'baja', 'medio', 'moto7', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto medio.');
+                //R8
+                CrearReglaSimple('Recreativo', 'baja', 'bajo', 'moto8', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto bajo.');
+                //R9
+                CrearReglaSimple('Recreativo', 'alta', 'alto', 'moto9', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico.');
+                //R10
+                CrearReglaSimple('Recreativo', 'alta', 'medio', 'moto10', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asumo que se no se apunta a la maxima categoria de cada tipo de competicion, sino a una segunda categoria.');
+                //R11
+                CrearReglaSimple('Recreativo', 'alta', 'bajo', 'moto11', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asume que se apunta a una categoria de entrada a cada tipo de competicion.');
+                //R12
+                CrearReglaSimpleSinExperiencia('Laboral', 'alto', 'moto12', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto alto, se busca tener la mayor comodidad posible en la moto.');
+                //R13
+                CrearReglaSimpleSinExperiencia('Laboral', 'medio', 'moto13', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto medio, se busca tener la mayor comodidad posible en la moto con un presupuesto medio.');
+                //R14
+                CrearReglaSimpleSinExperiencia('Laboral', 'bajo', 'moto14', 'Se buscan las motos mas economicas, tanto para comprar como para mantener.');
+                //R15
+                CrearReglaSimple('Viajes', 'alta', 'alto', 'moto15', '');
+                //R16
+                CrearReglaSimple('Viajes', 'alta', 'medio', 'moto16', '');
+                //R17
+                CrearReglaSimple('Viajes', 'alta', 'bajo', 'moto17', '');
+                //R18
+                CrearReglaSimple('Viajes', 'media', 'bajo', 'moto18', '');
+                //R19
+                CrearReglaSimple('Viajes', 'media', 'bajo', 'moto19', '');
+                //R20
+                CrearReglaSimple('Viajes', 'media', 'bajo', 'moto20', '');
+
+                inicalizado = true;
+            }
+
+            var facts = { experiencia: values.experiencia,
+                presupuesto: "alto", // values.presupuesto,
+                altura: values.altura,
+                uso: values.uso,
+                cilindrada: values.cilindrada,
+                costo: values.costo,
+                peso: values.peso,
+                motor: values.motor,
+                fin: values.fin,
+                cilindros: values.cilindros,
+                potencia: values.potencia,
+                torque: values.torque,
+                postura: values.postura,
+                diamertroCilindro: values.diamertroCilindro,
+                carreraCilindro: values.carreraCilindro,
+             }
+
+            const { events } = await engine.run(facts)
+
+            if( events.length > 0) {
+                const firstElement = events[0]
+                setVehicle(firstElement)
+                setShow(true);
+            }
+
+            debugger
+        }
+
+        function CrearReglaSimple(uso, experiencia, presupuesto, moto, mensaje) {
+            engine.addRule({
+                conditions: {
+                    all: [{
+                        fact: 'uso',
+                        operator: 'equal',
+                        value: uso
+                    },
+                    {
+                        fact: 'experiencia',
+                        operator: 'equal',
+                        value: experiencia
+                    },
+                    {
+                        fact: 'presupuesto',
+                        operator: 'equal',
+                        value: presupuesto
+                    }]
+                },
+                event: {
+                    type: 'message',
+                    params: {
+                        opcion: moto,
+                        motivo: mensaje
+                    }
+                }
+            });
+        }
+
+        function CrearReglaSimpleSinExperiencia(uso, experiencia, presupuesto, moto, mensaje) {
+            engine.addRule({
+                conditions: {
+                    all: [{
+                        fact: 'uso',
+                        operator: 'equal',
+                        value: uso
+                    },
+                    {
+                        fact: 'presupuesto',
+                        operator: 'equal',
+                        value: presupuesto
+                    }]
+                },
+                event: {
+                    type: 'message',
+                    params: {
+                        opcion: moto,
+                        motivo: mensaje
+                    }
+                }
+            });
         }
     }
 
@@ -303,6 +442,19 @@ const Home = () => {
                     </Row>
                 </Form>
             </div>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Encontramos su Moto</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Su moto es {vehicle?.params.opcion}. Por el siguiente motivo: {vehicle?.params.motivo}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
