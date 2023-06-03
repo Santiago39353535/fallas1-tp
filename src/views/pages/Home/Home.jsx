@@ -67,45 +67,45 @@ const Home = () => {
             if (!inicalizado) { //Tal vez es mejor poner esto en el "starter" pero ahora no me puse a buscar si eso existe
                 //              USO       Experiencia/Presupuesto       Moto/mensaje
                 //R1
-                CrearReglaSimple('Recreativo', 'Alta', 'alto', 'moto2', 'Al tener alto presupuesto y alta experiencia para uso recreativo cualquier modelo esta permitido sin limite de HP. Basicamente va a depender de los gustos personales de cada usuario.');
+                CrearReglaSimple('Recreativo', 'Alta', 'Alto', 'moto2', 'Al tener alto presupuesto y alta experiencia para uso recreativo cualquier modelo esta permitido sin limite de HP. Basicamente va a depender de los gustos personales de cada usuario.');
                 //R2
                 CrearReglaSimple('Recreativo', 'Alta', 'Medio', 'moto2', 'alta experiencia, se busca lo mas divertido con un presupuesto medio.');
                 //R3
-                CrearReglaSimple('Recreativo', 'Alta', 'bajo', 'moto3', 'alta experiencia, se busca lo mas divertido posible con un presupuesto bajo.');
+                CrearReglaSimple('Recreativo', 'Alta', 'Bajo', 'moto3', 'alta experiencia, se busca lo mas divertido posible con un presupuesto bajo.');
                 //R4
-                CrearReglaSimple('Recreativo', 'media', 'alto', 'moto4', 'Alto presupuesto, experiencia media, se busca algo que tenga como mucho 120 HP sin importar su precio.');
+                CrearReglaSimple('Recreativo', 'Medio', 'Alto', 'moto4', 'Alto presupuesto, experiencia media, se busca algo que tenga como mucho 120 HP sin importar su precio.');
                 //R5
-                CrearReglaSimple('Recreativo', 'media', 'bajo', 'moto5', 'Experiencia media, se busca algo que tenga como mucho 120 HP con un presupuesto bajo.');
+                CrearReglaSimple('Recreativo', 'Medio', 'Bajo', 'moto5', 'Experiencia media, se busca algo que tenga como mucho 120 HP con un presupuesto bajo.');
                 //R6
-                CrearReglaSimple('Recreativo', 'Baja', 'alto', 'moto6', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, sin importar su precio, por lo que se apunta a las motos mas premium de este segmento.');
+                CrearReglaSimple('Recreativo', 'Baja', 'Alto', 'moto6', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, sin importar su precio, por lo que se apunta a las motos mas premium de este segmento.');
                 //R7
                 CrearReglaSimple('Recreativo', 'Baja', 'Medio', 'moto7', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto medio.');
                 //R8
-                CrearReglaSimple('Recreativo', 'Baja', 'bajo', 'moto8', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto bajo.');
+                CrearReglaSimple('Recreativo', 'Baja', 'Bajo', 'moto8', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto bajo.');
                 //R9
-                CrearReglaSimple('Recreativo', 'Alta', 'alto', 'moto9', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico.');
+                CrearReglaSimple('Recreativo', 'Alta', 'Alto', 'moto9', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico.');
                 //R10
                 CrearReglaSimple('Recreativo', 'Alta', 'Medio', 'moto10', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asumo que se no se apunta a la maxima categoria de cada tipo de competicion, sino a una segunda categoria.');
                 //R11
-                CrearReglaSimple('Recreativo', 'Alta', 'bajo', 'moto11', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asume que se apunta a una categoria de entrada a cada tipo de competicion.');
+                CrearReglaSimple('Recreativo', 'Alta', 'Bajo', 'moto11', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asume que se apunta a una categoria de entrada a cada tipo de competicion.');
                 //R12
-                CrearReglaSimpleSinExperiencia('Laboral', 'alto', 'moto12', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto alto, se busca tener la mayor comodidad posible en la moto.');
+                CrearReglaSimpleSinExperiencia('Laboral', 'Alto', 'moto12', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto alto, se busca tener la mayor comodidad posible en la moto.');
                 //R13
                 CrearReglaSimpleSinExperiencia('Laboral', 'Medio', 'moto13', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto medio, se busca tener la mayor comodidad posible en la moto con un presupuesto medio.');
                 //R14
-                CrearReglaSimpleSinExperiencia('Laboral', 'bajo', 'moto14', 'Se buscan las motos mas economicas, tanto para comprar como para mantener.');
+                CrearReglaSimpleSinExperiencia('Laboral', 'Bajo', 'moto14', 'Se buscan las motos mas economicas, tanto para comprar como para mantener.');
                 //R15
-                CrearReglaSimple('Viajes', 'Alta', 'alto', 'moto15', '');
+                CrearReglaSimple('Viajes', 'Alta', 'Alto', 'moto15', '');
                 //R16
                 CrearReglaSimple('Viajes', 'Alta', 'Medio', 'moto16', '');
                 //R17
-                CrearReglaSimple('Viajes', 'Alta', 'bajo', 'moto17', '');
+                CrearReglaSimple('Viajes', 'Alta', 'Bajo', 'moto17', '');
                 //R18
-                CrearReglaSimple('Viajes', 'media', 'bajo', 'moto18', '');
+                CrearReglaSimple('Viajes', 'Medio', 'Bajo', 'moto18', '');
                 //R19
-                CrearReglaSimple('Viajes', 'media', 'bajo', 'moto19', '');
+                CrearReglaSimple('Viajes', 'Medio', 'Bajo', 'moto19', '');
                 //R20
-                CrearReglaSimple('Viajes', 'media', 'bajo', 'moto20', '');
+                CrearReglaSimple('Viajes', 'Medio', 'Bajo', 'moto20', '');
 
                 CrearReglaTroncal('Recreativo')
 
