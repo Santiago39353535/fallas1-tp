@@ -35,7 +35,12 @@ const Home = () => {
             carreraCilindro:10,
         }
     );
+
+    const [showExperience, setShowExperience] = useState(false);
+    const [showBudget, setShowBudget] = useState(false);
+
     const [show, setShow] = useState(false);
+
     const [vehicle, setVehicle] = useState(null);
     const handleClose = () => {
         setShow(false);
@@ -60,48 +65,49 @@ const Home = () => {
             //Motor de reglas
 
             if (!inicalizado) { //Tal vez es mejor poner esto en el "starter" pero ahora no me puse a buscar si eso existe
-                
                 //              USO       Experiencia/Presupuesto       Moto/mensaje
                 //R1
-                CrearReglaSimple('Recreativo', 'alta', 'alto', 'moto2', 'Al tener alto presupuesto y alta experiencia para uso recreativo cualquier modelo esta permitido sin limite de HP. Basicamente va a depender de los gustos personales de cada usuario.');
+                CrearReglaSimple('Recreativo', 'Alta', 'alto', 'moto2', 'Al tener alto presupuesto y alta experiencia para uso recreativo cualquier modelo esta permitido sin limite de HP. Basicamente va a depender de los gustos personales de cada usuario.');
                 //R2
-                CrearReglaSimple('Recreativo', 'alta', 'medio', 'moto2', 'Alta experiencia, se busca lo mas divertido con un presupuesto medio.');
+                CrearReglaSimple('Recreativo', 'Alta', 'Medio', 'moto2', 'alta experiencia, se busca lo mas divertido con un presupuesto medio.');
                 //R3
-                CrearReglaSimple('Recreativo', 'alta', 'bajo', 'moto3', 'Alta experiencia, se busca lo mas divertido posible con un presupuesto bajo.');
+                CrearReglaSimple('Recreativo', 'Alta', 'bajo', 'moto3', 'alta experiencia, se busca lo mas divertido posible con un presupuesto bajo.');
                 //R4
                 CrearReglaSimple('Recreativo', 'media', 'alto', 'moto4', 'Alto presupuesto, experiencia media, se busca algo que tenga como mucho 120 HP sin importar su precio.');
                 //R5
                 CrearReglaSimple('Recreativo', 'media', 'bajo', 'moto5', 'Experiencia media, se busca algo que tenga como mucho 120 HP con un presupuesto bajo.');
                 //R6
-                CrearReglaSimple('Recreativo', 'baja', 'alto', 'moto6', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, sin importar su precio, por lo que se apunta a las motos mas premium de este segmento.');
+                CrearReglaSimple('Recreativo', 'Baja', 'alto', 'moto6', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, sin importar su precio, por lo que se apunta a las motos mas premium de este segmento.');
                 //R7
-                CrearReglaSimple('Recreativo', 'baja', 'medio', 'moto7', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto medio.');
+                CrearReglaSimple('Recreativo', 'Baja', 'Medio', 'moto7', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto medio.');
                 //R8
-                CrearReglaSimple('Recreativo', 'baja', 'bajo', 'moto8', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto bajo.');
+                CrearReglaSimple('Recreativo', 'Baja', 'bajo', 'moto8', 'Al tener baja experiencia, se buscan motos que tengan a lo sumo 50 HP, con un presupuesto bajo.');
                 //R9
-                CrearReglaSimple('Recreativo', 'alta', 'alto', 'moto9', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico.');
+                CrearReglaSimple('Recreativo', 'Alta', 'alto', 'moto9', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico.');
                 //R10
-                CrearReglaSimple('Recreativo', 'alta', 'medio', 'moto10', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asumo que se no se apunta a la maxima categoria de cada tipo de competicion, sino a una segunda categoria.');
+                CrearReglaSimple('Recreativo', 'Alta', 'Medio', 'moto10', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asumo que se no se apunta a la maxima categoria de cada tipo de competicion, sino a una segunda categoria.');
                 //R11
-                CrearReglaSimple('Recreativo', 'alta', 'bajo', 'moto11', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asume que se apunta a una categoria de entrada a cada tipo de competicion.');
+                CrearReglaSimple('Recreativo', 'Alta', 'bajo', 'moto11', 'Para uso competitivo existen dos principales ramas, las motos de velocidad o las motos de tierra, ambas se encuentra en espectros separados, una apunta a mayor potencia con 4 cilidros y la otra a mayor torque con un monocilindrico. En este caso al ser de presupuesto medio, se asume que se apunta a una categoria de entrada a cada tipo de competicion.');
                 //R12
                 CrearReglaSimpleSinExperiencia('Laboral', 'alto', 'moto12', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto alto, se busca tener la mayor comodidad posible en la moto.');
                 //R13
-                CrearReglaSimpleSinExperiencia('Laboral', 'medio', 'moto13', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto medio, se busca tener la mayor comodidad posible en la moto con un presupuesto medio.');
+                CrearReglaSimpleSinExperiencia('Laboral', 'Medio', 'moto13', 'Las motos para uso laboral estan asociadas inherentemente al bajo costo de mantenimiento, pero al tener presupuesto medio, se busca tener la mayor comodidad posible en la moto con un presupuesto medio.');
                 //R14
                 CrearReglaSimpleSinExperiencia('Laboral', 'bajo', 'moto14', 'Se buscan las motos mas economicas, tanto para comprar como para mantener.');
                 //R15
-                CrearReglaSimple('Viajes', 'alta', 'alto', 'moto15', '');
+                CrearReglaSimple('Viajes', 'Alta', 'alto', 'moto15', '');
                 //R16
-                CrearReglaSimple('Viajes', 'alta', 'medio', 'moto16', '');
+                CrearReglaSimple('Viajes', 'Alta', 'Medio', 'moto16', '');
                 //R17
-                CrearReglaSimple('Viajes', 'alta', 'bajo', 'moto17', '');
+                CrearReglaSimple('Viajes', 'Alta', 'bajo', 'moto17', '');
                 //R18
                 CrearReglaSimple('Viajes', 'media', 'bajo', 'moto18', '');
                 //R19
                 CrearReglaSimple('Viajes', 'media', 'bajo', 'moto19', '');
                 //R20
                 CrearReglaSimple('Viajes', 'media', 'bajo', 'moto20', '');
+
+                CrearReglaTroncal('Recreativo')
 
                 inicalizado = true;
             }
@@ -127,11 +133,39 @@ const Home = () => {
 
             if( events.length > 0) {
                 const firstElement = events[0]
-                setVehicle(firstElement)
-                setShow(true);
+                setShowExperience(firstElement.params.showExperience)
+                setShowBudget(firstElement.params.showBudget)
+                debugger
+                if(firstElement.params.opcion){
+                    setVehicle(firstElement)
+                    setShow(true);
+                }
             }
 
             debugger
+        }
+
+        function CrearReglaTroncal(uso) {
+            engine.addRule({
+                conditions: {
+                    all: [
+                        {
+                            fact: 'uso',
+                            operator: 'equal',
+                            value: uso
+                        },
+                    ]
+                },
+                event: {
+                    type: 'message',
+                    params: {
+                        opcion: null,
+                        motivo: null,
+                        showExperience:true,
+                        showBudget:true,
+                    }
+                }
+            });
         }
 
         function CrearReglaSimple(uso, experiencia, presupuesto, moto, mensaje) {
@@ -157,7 +191,9 @@ const Home = () => {
                     type: 'message',
                     params: {
                         opcion: moto,
-                        motivo: mensaje
+                        motivo: mensaje,
+                        showExperience:true,
+                        showBudget:true,
                     }
                 }
             });
@@ -219,18 +255,38 @@ const Home = () => {
                     {/* datos del usuario */}
                     <Row>
                         <Col>
-                            <Form.Group as={Row} className="mb-3" controlId="formPresupuesto">
-                                <Form.Label column>Presupuesto</Form.Label>
+                            <Form.Group as={Row} className="mb-3" controlId="formUso">
+                                <Form.Label column >Uso</Form.Label>
                                 <Col >
-                                    <Form.Control
-                                        type="number"
-                                        value={values.presupuesto}
-                                        onChange={(event)=>updateValue({presupuesto:event.target.value})}
-                                    />
+                                    <Form.Select value={values.uso} onChange={(event)=>updateValue({uso:event.target.value})} aria-label="Default select example">
+                                        <option value=''></option>
+                                        <option value={constants.USOS.RECREATIVO}>{constants.USOS.RECREATIVO}</option>
+                                        <option value={constants.USOS.LABORAL}>{constants.USOS.LABORAL}</option>
+                                        {/* <option value={constants.USOS.TRANSPORTE}>{constants.USOS.TRANSPORTE}</option> */}
+                                        <option value={constants.USOS.COMPETICIOM}>{constants.USOS.COMPETICIOM}</option>
+                                    </Form.Select>
                                 </Col>
                             </Form.Group>
                         </Col>
-                        <Col>
+                        {showBudget?<Col>
+                            <Form.Group as={Row} className="mb-3" controlId="formPresupuesto">
+                                <Form.Label column>Presupuesto</Form.Label>
+                                <Col >
+                                    {/* <Form.Control
+                                        type="number"
+                                        value={values.presupuesto}
+                                        onChange={(event)=>updateValue({presupuesto:event.target.value})}
+                                    /> */}
+                                    <Form.Select value={values.presupuesto} onChange={(event)=>updateValue({presupuesto:event.target.value})} aria-label="Default select example">
+                                        <option value=''></option>
+                                        <option value={constants.VALORES_3.ALTA}>{constants.VALORES_3.ALTA}</option>
+                                        <option value={constants.VALORES_3.MEDIA}>{constants.VALORES_3.MEDIA}</option>
+                                        <option value={constants.VALORES_3.BAJA}>{constants.VALORES_3.BAJA}</option>
+                                    </Form.Select>
+                                </Col>
+                            </Form.Group>
+                        </Col>:null}
+                        {showExperience?<Col>
                             <Form.Group as={Row} className="mb-3" controlId="formExperiancia">
                                 <Form.Label column >Cuanta experiancia tenes</Form.Label>
                                 <Col >
@@ -242,8 +298,8 @@ const Home = () => {
                                     </Form.Select>
                                 </Col>
                             </Form.Group>
-                        </Col>
-                        <Col>
+                        </Col>:null}
+                        {/* <Col>
                         <Form.Group as={Row} className="mb-3" controlId="formAltura">
                             <Form.Label column>Altura</Form.Label>
                             <Col >
@@ -255,25 +311,11 @@ const Home = () => {
                                 </Form.Select>
                             </Col>
                         </Form.Group>
-                        </Col>
-                        <Col>
-                        <Form.Group as={Row} className="mb-3" controlId="formUso">
-                            <Form.Label column >Uso</Form.Label>
-                            <Col >
-                                <Form.Select value={values.uso} onChange={(event)=>updateValue({uso:event.target.value})} aria-label="Default select example">
-                                    <option value=''></option>
-                                    <option value={constants.USOS.RECREATIVO}>{constants.USOS.RECREATIVO}</option>
-                                    <option value={constants.USOS.LABORAL}>{constants.USOS.LABORAL}</option>
-                                    <option value={constants.USOS.TRANSPORTE}>{constants.USOS.TRANSPORTE}</option>
-                                    <option value={constants.USOS.COMPETICIOM}>{constants.USOS.COMPETICIOM}</option>
-                                </Form.Select>
-                            </Col>
-                        </Form.Group>
-                        </Col>
+                        </Col> */}
                     </Row>
 
                     {/* datos de la moto */}
-                    <Row>
+                    {/* <Row>
                         <Col>
                             <Form.Group as={Row} className="mb-3" controlId="formCilindrada">
                                 <Form.Label column >Cilindrada del Motor</Form.Label>
@@ -289,7 +331,7 @@ const Home = () => {
                         </Col>
                         <Col>
                             <Form.Group as={Row} className="mb-3" controlId="formCosto">
-                                <Form.Label column >Costo</Form.Label>
+                                <Form.Label column > </Form.Label>
                                 <Col >
                                     <Form.Select value={values.costo} onChange={(event)=>updateValue({costo:event.target.value})} aria-label="Default select example">
                                         <option value=''></option>
@@ -430,7 +472,7 @@ const Home = () => {
                             </Form.Group>
                         </Col>
                         <Col></Col>
-                    </Row>
+                    </Row> */}
                     <Row className="justify-content-md-end">
                         <Col md="auto">
                             <Form.Group controlId="formSubmit">

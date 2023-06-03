@@ -5,14 +5,14 @@ module.exports = {
         SIGNUP:'/signup',
     },
     VALORES_3:{
-        ALTA:'alta',
-        MEDIA:'media',
-        BAJA:'baja',
+        ALTA:'Alta',
+        MEDIA:'Medio',
+        BAJA:'Baja',
     },
     USOS:{
         RECREATIVO:'Recreativo',
         LABORAL:'Laboral',
-        TRANSPORTE:'Transporte',
+        TRANSPORTE:'Viaje',
         COMPETICIOM:'Competicion',
     },
     MOTOR:{
