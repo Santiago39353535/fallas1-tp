@@ -1,7 +1,7 @@
 .section-intro {
     height: 100vh;
     /* se puede cambiar la iamgen de fondo */
-    background-image: url('../../../assets/images/moto-01.webp');
+    /* background-image: url('../../../assets/images/moto-01.webp'); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -11,10 +11,13 @@
     flex-direction: column;
 }
 
-.section-intro-title,.section-product-title{
+.section-intro-title, .section-product-title{
     text-align: center;
     color: white;
     font-size: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0px 10px;
 }
 
 
@@ -22,6 +25,10 @@
     text-align: center;
     color: white;
     font-size: 52px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 10px;
+
 }
 
 .section-product-sub-title{
