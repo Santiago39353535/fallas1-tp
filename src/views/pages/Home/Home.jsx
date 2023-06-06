@@ -93,6 +93,9 @@ const Home = () => {
                 if(firstElement.params.opcion){
                     setVehicle(firstElement)
                     setShow(true);
+                } else {
+                    values.experiencia = "";
+                    values.presupuesto = "";
                 }
             }
         }
@@ -367,7 +370,7 @@ const Home = () => {
                     <Modal.Title>Encontramos su Moto</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Los modelos recomendados para usted son: {vehicle?.params.opcion}. 
+                    Los modelos recomendados para usted son: {vehicle?.params.opcion}.
                     Por el siguiente motivo: {vehicle?.params.motivo}
                 </Modal.Body>
                 <Modal.Footer>
