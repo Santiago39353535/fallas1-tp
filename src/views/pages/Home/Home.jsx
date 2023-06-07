@@ -370,8 +370,9 @@ const Home = () => {
                     <Modal.Title>Encontramos su Moto</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Los modelos recomendados para usted son: {vehicle?.params.opcion}.
-                    Por el siguiente motivo: {vehicle?.params.motivo}
+                    <b>Los modelos recomendados para usted son:</b> {vehicle?.params.opcion}.
+                    <br></br>
+                    <b>Por el siguiente motivo:</b> {vehicle?.params.motivo}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
