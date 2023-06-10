@@ -1,7 +1,5 @@
 .section-intro {
     height: 100vh;
-    /* se puede cambiar la iamgen de fondo */
-    /* background-image: url('../../../assets/images/moto-01.webp'); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -11,7 +9,8 @@
     flex-direction: column;
 }
 
-.section-intro-title, .section-product-title{
+.section-intro-title,
+.section-product-title {
     text-align: center;
     color: white;
     font-size: 60px;
@@ -21,7 +20,7 @@
 }
 
 
-.section-intro-sub-title{
+.section-intro-sub-title {
     text-align: center;
     color: white;
     font-size: 52px;
@@ -31,12 +30,12 @@
 
 }
 
-.section-product-sub-title{
+.section-product-sub-title {
     text-align: center;
     font-size: 38px;
 }
 
-.section-form{
+.section-form {
     margin-top: 2%;
     margin-bottom: 2%;
     padding-left: 12px;
