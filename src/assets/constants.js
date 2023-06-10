@@ -6,13 +6,13 @@ module.exports = {
     },
     VALORES_3: {
         ALTA: 'Alta',
-        MEDIA: 'Media',
+        MEDIA: 'Medio',
         BAJA: 'Baja',
     },
     USOS: {
         RECREATIVO: 'Recreativo',
         LABORAL: 'Laboral',
-        TRANSPORTE: 'Viaje',
+        TRANSPORTE: 'Viajes',
         COMPETICION: 'Competicion',
     },
     MOTOR: {
