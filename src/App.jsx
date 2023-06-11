@@ -13,7 +13,7 @@ function App() {
     document.title = "Sistema Experto - Motos"
   }, [])
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/fallas1-tp">
       <Dashboard />
     </BrowserRouter>
   );
