@@ -115,19 +115,19 @@ const Recomendacion = () => {
         appyEngine()
     }, [values.uso]);
 
-    const mostrarExperienciaAlta = () =>{
+    const mostrarExperienciaAlta = () => {
         return true
     }
 
-    const mostrarExperienciaMedia = () =>{
-        if(values.uso===constants.USOS.COMPETICION){
+    const mostrarExperienciaMedia = () => {
+        if (values.uso === constants.USOS.COMPETICION) {
             return false
         }
         return true
     }
 
-    const mostrarExperienciaBaja = () =>{
-        if(values.uso===constants.USOS.COMPETICION||values.uso===constants.USOS.TRANSPORTE){
+    const mostrarExperienciaBaja = () => {
+        if (values.uso === constants.USOS.COMPETICION || values.uso === constants.USOS.TRANSPORTE) {
             return false
         }
         return true
@@ -144,8 +144,8 @@ const Recomendacion = () => {
                                 <Form.Label column>Cuál será el uso principal?</Form.Label>
                                 <Col >
                                     <Form.Select value={values.uso} onChange={(event) => {
-                                            updateValue({ uso: event.target.value,experiencia:'',presupuesto:'' })
-                                        }} aria-label="Default select example">
+                                        updateValue({ uso: event.target.value, experiencia: '', presupuesto: '' })
+                                    }} aria-label="Default select example">
                                         <option value=''></option>
                                         <option value={constants.USOS.RECREATIVO}>{constants.USOS.RECREATIVO}</option>
                                         <option value={constants.USOS.LABORAL}>{constants.USOS.LABORAL}</option>
@@ -162,8 +162,8 @@ const Recomendacion = () => {
                                 <Form.Label column>Cual es su presupuesto?</Form.Label>
                                 <Col >
                                     <Form.Select value={values.presupuesto} onChange={(event) => {
-                                            updateValue({ presupuesto: event.target.value })
-                                        }} aria-label="Default select example">
+                                        updateValue({ presupuesto: event.target.value })
+                                    }} aria-label="Default select example">
                                         <option value=''></option>
                                         <option value={constants.VALORES_3.ALTA}>{constants.VALORES_3.ALTA}</option>
                                         <option value={constants.VALORES_3.MEDIA}>{constants.VALORES_3.MEDIA}</option>
@@ -180,9 +180,9 @@ const Recomendacion = () => {
                                 <Col >
                                     <Form.Select value={values.experiencia} onChange={(event) => updateValue({ experiencia: event.target.value })} aria-label="Default select example">
                                         <option value=''></option>
-                                        {mostrarExperienciaAlta()?<option value={constants.VALORES_3.ALTA}>{constants.VALORES_3.ALTA}</option>:null}
-                                        {mostrarExperienciaMedia()?<option value={constants.VALORES_3.MEDIA}>{constants.VALORES_3.MEDIA}</option>:null}
-                                        {mostrarExperienciaBaja()?<option value={constants.VALORES_3.BAJA}>{constants.VALORES_3.BAJA}</option>:null}
+                                        {mostrarExperienciaAlta() ? <option value={constants.VALORES_3.ALTA}>{constants.VALORES_3.ALTA}</option> : null}
+                                        {mostrarExperienciaMedia() ? <option value={constants.VALORES_3.MEDIA}>{constants.VALORES_3.MEDIA}</option> : null}
+                                        {mostrarExperienciaBaja() ? <option value={constants.VALORES_3.BAJA}>{constants.VALORES_3.BAJA}</option> : null}
                                     </Form.Select>
                                 </Col>
                             </Form.Group>
@@ -204,8 +204,9 @@ const Recomendacion = () => {
                     <Modal.Title>Encontramos su Moto</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <b>Los modelos recomendados para usted son:</b> {vehicle?.params.opcion}.
+                    <b>Los modelos recomendados para usted son:</b>
                     <br></br>
+                    <div dangerouslySetInnerHTML={{ __html: vehicle?.params.opcion }} />
                     <b>Por el siguiente motivo:</b> {vehicle?.params.motivo}
                 </Modal.Body>
                 <Modal.Footer>
