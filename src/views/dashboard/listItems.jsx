@@ -10,7 +10,7 @@ import constants from '../../assets/constants';
 
 export const mainListItems = (
   <React.Fragment>
-    <Link to={''}>
+    <Link to={constants.ROUTES.HOME}>
       <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
