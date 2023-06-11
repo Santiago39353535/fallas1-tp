@@ -164,7 +164,7 @@ export default function Dashboard() {
                   <Route path={Constants.ROUTES.HOME} element={<Home />}></Route>
                   <Route path={Constants.ROUTES.INTERIORIZATE} element={<Interiorizate />}></Route>
                   <Route path={Constants.ROUTES.RECOMENDACIONES} element={<Recomendacion />}></Route>
-                  <Route path='*' element={<Page404 />} />
+                  <Route path='*' element={<Home />} />
                 </Routes>
               </DefaultLayout>
             </ParallaxProvider>
