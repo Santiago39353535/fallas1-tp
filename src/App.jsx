@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 
 //imports
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // pages
@@ -13,9 +13,9 @@ function App() {
     document.title = "Sistema Experto - Motos"
   }, [])
   return (
-    <BrowserRouter basename="/fallas1-tp">
+    <HashRouter>
       <Dashboard />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
