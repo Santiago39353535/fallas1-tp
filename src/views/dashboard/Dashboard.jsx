@@ -19,7 +19,6 @@ import { Route, Routes } from "react-router-dom";
 import { ParallaxProvider } from 'react-scroll-parallax';
 import DefaultLayout from '../../containers/DefaultLayout/DefaultLayout';
 import Constants from '../../assets/constants';
-import Page404 from '../../views/pages/Pages404/Page404';
 import Interiorizate from '../pages/Interiorizate/Interiorizate'
 import Recomendacion from '../pages/Recomendacion/Recomendacion'
 
