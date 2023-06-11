@@ -113,6 +113,7 @@ const Recomendacion = () => {
 
     useEffect(() => {
         appyEngine()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [values.uso]);
 
     const mostrarExperienciaAlta = () => {
