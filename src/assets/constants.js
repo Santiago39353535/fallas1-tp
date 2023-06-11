@@ -1,8 +1,8 @@
 module.exports = {
     ROUTES: {
-        HOME: 'fallas1-tp',
-        INTERIORIZATE: 'fallas1-tp/interiorizate',
-        RECOMENDACIONES: 'fallas1-tp/recomendaciones',
+        HOME: '',
+        INTERIORIZATE: '/interiorizate',
+        RECOMENDACIONES: '/recomendaciones',
     },
     VALORES_3: {
         ALTA: 'Alta',
