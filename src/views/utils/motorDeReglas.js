@@ -44,6 +44,12 @@ const crearReglasDeMotos = (engine) => {
     //R21
     CrearReglaSimple(engine, USOS.TRANSPORTE, VALORES_3.MEDIA, VALORES_3.BAJA, '&#x2022; TRK251<br>&#x2022; REBEL 300<br>&#x2022; 300DS<br>&#x2022; 300 Rally<br>&#x2022; Avenger<br>&#x2022; IMPERIALE 400<br>&#x2022; Himalayan 400<br>&#x2022; TC', 'Se buscan los modelos que permitan realizar viajes largos con un presupuesto reducido y que sea manejable por alguien con experiencia media, por lo general, motos viajeras de menor peso para que sean mas manejables');
 
+    // No hay moto
+    CrearReglaSimple(engine, USOS.TRANSPORTE, VALORES_3.BAJA, VALORES_3.ALTA, 'No hay Moto que cumpla estos requerimientos', '');
+    CrearReglaSimple(engine, USOS.TRANSPORTE, VALORES_3.BAJA, VALORES_3.MEDIA, 'No hay Moto que cumpla estos requerimientos', '');
+    CrearReglaSimple(engine, USOS.TRANSPORTE, VALORES_3.BAJA, VALORES_3.BAJA, 'No hay Moto que cumpla estos requerimientos', '');
+
+
     CrearReglaTroncal(engine, USOS.RECREATIVO, true, true)
     CrearReglaTroncal(engine, USOS.COMPETICION, false, true)
     CrearReglaTroncal(engine, USOS.LABORAL, false, true)

@@ -181,9 +181,9 @@ const Recomendacion = () => {
                                 <Col >
                                     <Form.Select value={values.experiencia} onChange={(event) => updateValue({ experiencia: event.target.value })} aria-label="Default select example">
                                         <option value=''></option>
-                                        {mostrarExperienciaAlta() ? <option value={constants.VALORES_3.ALTA}>{constants.VALORES_3.ALTA}</option> : null}
-                                        {mostrarExperienciaMedia() ? <option value={constants.VALORES_3.MEDIA}>{constants.VALORES_3.MEDIA}</option> : null}
-                                        {mostrarExperienciaBaja() ? <option value={constants.VALORES_3.BAJA}>{constants.VALORES_3.BAJA}</option> : null}
+                                        <option value={constants.VALORES_3.ALTA}>{constants.VALORES_3.ALTA}</option>
+                                        <option value={constants.VALORES_3.MEDIA}>{constants.VALORES_3.MEDIA}</option>
+                                        <option value={constants.VALORES_3.BAJA}>{constants.VALORES_3.BAJA}</option>
                                     </Form.Select>
                                 </Col>
                             </Form.Group>
@@ -208,7 +208,7 @@ const Recomendacion = () => {
                     <b>Los modelos recomendados para usted son:</b>
                     <br></br>
                     <div dangerouslySetInnerHTML={{ __html: vehicle?.params.opcion }} />
-                    <b>Por el siguiente motivo:</b> {vehicle?.params.motivo}
+                    {vehicle?.params.motivo&&<b>Por el siguiente motivo:</b>} {vehicle?.params.motivo}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
