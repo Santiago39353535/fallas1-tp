@@ -116,23 +116,6 @@ const Recomendacion = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [values.uso]);
 
-    const mostrarExperienciaAlta = () => {
-        return true
-    }
-
-    const mostrarExperienciaMedia = () => {
-        if (values.uso === constants.USOS.COMPETICION) {
-            return false
-        }
-        return true
-    }
-
-    const mostrarExperienciaBaja = () => {
-        if (values.uso === constants.USOS.COMPETICION || values.uso === constants.USOS.TRANSPORTE) {
-            return false
-        }
-        return true
-    }
     return (
         <Paper elevation={3} >
             {/* Formulario */}
