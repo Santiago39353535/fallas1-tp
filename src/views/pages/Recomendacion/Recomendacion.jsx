@@ -11,10 +11,10 @@ import { crearReglasDeMotos } from '../../utils/motorDeReglas'
 import { Paper } from '@mui/material';
 
 import './Recomendacion.css';
+import {Engine} from '../../utils/engine';
 
-const { Engine } = require('json-rules-engine')
 const engine = new Engine()
-
+console.log(engine)
 crearReglasDeMotos(engine);
 
 const Recomendacion = () => {
@@ -84,16 +84,13 @@ const Recomendacion = () => {
             diamertroCilindro: values.diamertroCilindro,
             carreraCilindro: values.carreraCilindro,
         }
-
-        const { events } = await engine.run(facts)
+        const events = engine.run(facts)
         console.log(events)
-        if (events.length > 0) {
-            debugger
-            const firstElement = events[0]
-            setShowExperience(firstElement.params.showExperience)
-            setShowBudget(firstElement.params.showBudget)
-            if (firstElement.params.opcion) {
-                setVehicle(firstElement)
+        if (events) {
+            setShowExperience(events.params.showExperience)
+            setShowBudget(events.params.showBudget)
+            if (events.params.opcion) {
+                setVehicle(events)
                 setShow(true);
             }
         }
