@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable eqeqeq */
+/* eslint-disable default-case */
 
 export class Engine {
     constructor() {
