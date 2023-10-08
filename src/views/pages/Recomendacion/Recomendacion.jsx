@@ -12,7 +12,7 @@ import { Paper } from '@mui/material';
 
 import './Recomendacion.css';
 
-const { Engine } = require('json-rules-engine')
+import { Engine } from "../../utils/engine";
 const engine = new Engine()
 
 crearReglasDeMotos(engine);
@@ -24,19 +24,7 @@ const Recomendacion = () => {
         {
             experiencia: '',
             presupuesto: '',
-            altura: '',
             uso: '',
-            cilindrada: '',
-            costo: '',
-            peso: '',
-            motor: '',
-            fin: '',
-            cilindros: '',
-            potencia: 10,
-            torque: 10,
-            postura: '',
-            diamertroCilindro: 50,
-            carreraCilindro: 10,
         }
     );
 
@@ -70,19 +58,7 @@ const Recomendacion = () => {
         var facts = {
             experiencia: values.experiencia,
             presupuesto: values.presupuesto,
-            altura: values.altura,
             uso: values.uso,
-            cilindrada: values.cilindrada,
-            costo: values.costo,
-            peso: values.peso,
-            motor: values.motor,
-            fin: values.fin,
-            cilindros: values.cilindros,
-            potencia: values.potencia,
-            torque: values.torque,
-            postura: values.postura,
-            diamertroCilindro: values.diamertroCilindro,
-            carreraCilindro: values.carreraCilindro,
         }
 
         const { events } = await engine.run(facts)
